@@ -1,0 +1,12 @@
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\CustomerDA.dll.config
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\CustomerDA.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\CustomerDA.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\EntityFramework.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\EntityFramework.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Release\CustomerDA.csproj.CoreCompileInputs.cache
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Release\CustomerDA.csproj.CopyComplete
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Release\CustomerDA.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Release\CustomerDA.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Release\CustomerDA.csprojAssemblyReference.cache
