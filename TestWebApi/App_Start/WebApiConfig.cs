@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.Http.ExceptionHandling;
+using TestWebApi.Utilities;
 
 namespace TestWebApi
 {
@@ -19,6 +21,8 @@ namespace TestWebApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.Services.Replace(typeof(IExceptionHandler), new CustomExceptionHandler());
         }
     }
 }

@@ -75,7 +75,6 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\S
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.Web.WebPages.Razor.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Antlr3.Runtime.pdb
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csprojAssemblyReference.cache
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csproj.CoreCompileInputs.cache
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csproj.CopyComplete
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.dll

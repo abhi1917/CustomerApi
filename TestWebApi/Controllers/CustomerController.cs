@@ -16,8 +16,12 @@ namespace TestWebApi.Controllers
     [CustomAuthorization]
     public class CustomerController : ApiController
     {
-        // GET api/values
-        public HttpResponseMessage Get()
+        /// <summary>
+        /// /GetCustomers:This api returns a list containing all the customers in the db.
+        /// </summary>
+        /// <returns>List of customers</returns>
+        [HttpGet]
+        public HttpResponseMessage GetCustomers()
         {
             var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString();
             HttpClient httpClient = new HttpClient();
@@ -35,8 +39,13 @@ namespace TestWebApi.Controllers
             }
         }
 
-        // POST api/values
-        public HttpResponseMessage Post(Customer customer)
+        /// <summary>
+        /// This api posts customer data to databse
+        /// </summary>
+        /// <param name="customer">customer data</param>
+        /// <returns>http response message</returns>
+        [HttpPost]
+        public HttpResponseMessage PostCustomer(Customer customer)
         {
             HttpResponseMessage response;
             HttpClient httpClient = new HttpClient();
