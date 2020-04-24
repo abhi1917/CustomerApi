@@ -24,17 +24,17 @@ namespace TestWebApi.Utilities
                     }
                     else
                     {
-                        actionContext.Response = new HttpResponseMessage(System.Net.HttpStatusCode.Unauthorized);
+                        actionContext.Response = actionContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.Unauthorized,"Invalid Authorization token!");
                     }
                 }
                 else
                 {
-                    actionContext.Response = new HttpResponseMessage(System.Net.HttpStatusCode.Forbidden);
+                    actionContext.Response = actionContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.Forbidden,"No Authorization token found!");
                 }
             }
             catch(Exception ex)
             {
-                actionContext.Response = new HttpResponseMessage(System.Net.HttpStatusCode.InternalServerError);
+                actionContext.Response = actionContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.InternalServerError,"Something went wrong! Internal server error!");
                 return;
             }
         }
