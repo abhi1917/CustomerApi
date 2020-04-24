@@ -73,6 +73,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CustomerDB.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CustomerDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

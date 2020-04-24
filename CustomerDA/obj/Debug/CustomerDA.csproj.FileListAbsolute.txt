@@ -9,3 +9,4 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\D
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CopyComplete
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csprojAssemblyReference.cache

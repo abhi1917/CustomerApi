@@ -19,7 +19,7 @@ namespace TestFunction
         {
             log.Info("Customer View begins");
 
-            List<Customer> customers = null;
+            List<CustomerDetail> customers = null;
             string jsonValue = "";
             HttpResponseMessage response;
             try
@@ -27,7 +27,13 @@ namespace TestFunction
                 string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["WebapiDBEntities"].ConnectionString;
                 using (var db = new WebapiDBEntities(connectionString))
                 {
-                    customers = db.Customers.ToList();
+                    customers = db.Customers.Select(s => new CustomerDetail
+                    {
+                        FirstName = s.FirstName,
+                        LastName = s.LastName,
+                        Address = s.Address,
+                        Phonenumber = s.Phonenumber
+                    }).ToList();
                     jsonValue = JsonConvert.SerializeObject(customers);
                 }
                 response = req.CreateResponse(HttpStatusCode.OK, jsonValue);

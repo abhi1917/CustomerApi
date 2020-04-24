@@ -79,3 +79,4 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\D
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csproj.CopyComplete
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csprojAssemblyReference.cache
