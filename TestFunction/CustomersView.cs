@@ -32,7 +32,7 @@ namespace TestFunction
                         FirstName = s.FirstName,
                         LastName = s.LastName,
                         Address = s.Address,
-                        Phonenumber = s.Phonenumber
+                        Phonenumber = s.Phonenumber.ToString()
                     }).ToList();
                     jsonValue = JsonConvert.SerializeObject(customers);
                 }

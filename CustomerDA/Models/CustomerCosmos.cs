@@ -14,7 +14,7 @@ namespace CustomerDA.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
-        public int Phonenumber { get; set; }
+        public string Phonenumber { get; set; }
         public string TransactionID { get; set; }
         public string AgentID { get; set; }
     }

@@ -91,6 +91,7 @@ namespace TestWebApi.Controllers
         /// <param name="customer">customer data</param>
         /// <returns>http response message</returns>
         [HttpPost]
+        [CustomerDataValidation]
         public HttpResponseMessage PostCustomer(Customer customer)
         {
             HttpResponseMessage response;
@@ -107,20 +108,13 @@ namespace TestWebApi.Controllers
                     customer.AgentID = Request.Headers.GetValues("agentID").FirstOrDefault();
                 }
                 customer.CustomerId = GenerateCustomerId.Generate(9);
-                if (ValidateCustomer.Validate(customer))
+                var content = JsonConvert.SerializeObject(customer);
+                var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
+                var result = httpClient.PostAsync(url, stringContent);
+                response = result.Result;
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    var content = JsonConvert.SerializeObject(customer);
-                    var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
-                    var result = httpClient.PostAsync(url, stringContent);
-                    response = result.Result;
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
-                    }
-                }
-                else
-                {
-                    response = Request.CreateErrorResponse(HttpStatusCode.BadRequest, "Bad Request! Please check the body and header parameters!");
+                    response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
                 }
                 return response;
             }

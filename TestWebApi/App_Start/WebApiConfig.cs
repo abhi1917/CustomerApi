@@ -23,6 +23,7 @@ namespace TestWebApi
             );
 
             config.Services.Replace(typeof(IExceptionHandler), new CustomExceptionHandler());
+            //config.Filters.Add(new CustomerDataValidation());
         }
     }
 }
