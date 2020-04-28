@@ -1,0 +1,8 @@
+2020-04-28 11:30:41,026 [11] INFO  API logger [(null)] - Executing actionGET
+2020-04-28 11:30:50,735 [11] INFO  API logger [(null)] - Executed actionGET
+2020-04-28 11:35:06,008 [6] INFO  API logger [(null)] - Executing action GET for http://localhost:52376/api/Customer at 4/28/2020 11:35:06 AM
+2020-04-28 11:35:10,492 [6] INFO  API logger [(null)] - Executed action GET for http://localhost:52376/api/Customer at 4/28/2020 11:35:10 AM
+2020-04-28 11:39:01,195 [6] INFO  TestWebApi.Utilities.LogInfo [(null)] - Executing action GET for http://localhost:52376/api/Customer at 4/28/2020 11:39:01 AM
+2020-04-28 11:39:02,597 [6] INFO  TestWebApi.Utilities.LogInfo [(null)] - Executed action GET for http://localhost:52376/api/Customer at 4/28/2020 11:39:02 AM
+2020-04-28 12:00:30,719 [7] INFO  API logger [(null)] - Executing action GET for http://localhost:52376/api/Customer at 4/28/2020 12:00:30 PM
+2020-04-28 12:00:43,446 [7] INFO  API logger [(null)] - Executed action GET for http://localhost:52376/api/Customer at 4/28/2020 12:00:43 PM

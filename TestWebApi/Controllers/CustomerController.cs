@@ -14,6 +14,7 @@ using TestWebApi.Utilities;
 namespace TestWebApi.Controllers
 {
     [CustomAuthorization]
+    [LogInfo]
     public class CustomerController : ApiController
     {
         /// <summary>

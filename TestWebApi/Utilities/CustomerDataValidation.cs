@@ -18,7 +18,7 @@ namespace TestWebApi.Utilities
 {
     public class CustomerDataValidation:ActionFilterAttribute
     {
-        ValidatorEngine _ve = new ValidatorEngine();
+        private ValidatorEngine _ve = new ValidatorEngine();
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             string rawRequest;
