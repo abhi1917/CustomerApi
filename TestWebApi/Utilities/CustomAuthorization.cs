@@ -11,6 +11,10 @@ namespace TestWebApi.Utilities
 {
     public class CustomAuthorization:AuthorizationFilterAttribute
     {
+        /// <summary>
+        /// Authorizes the api user
+        /// </summary>
+        /// <param name="actionContext"> current http context</param>
         public override void OnAuthorization(HttpActionContext actionContext)
         {
             try

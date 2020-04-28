@@ -19,6 +19,10 @@ namespace TestWebApi.Utilities
     public class CustomerDataValidation:ActionFilterAttribute
     {
         private ValidatorEngine _ve = new ValidatorEngine();
+        /// <summary>
+        /// Filter implementation to validate input data
+        /// </summary>
+        /// <param name="actionContext">http action context</param>
         public override void OnActionExecuting(HttpActionContext actionContext)
         {
             string rawRequest;
@@ -60,7 +64,11 @@ namespace TestWebApi.Utilities
             base.OnActionExecuting(actionContext);
         }
 
-
+        /// <summary>
+        /// validate input json schema
+        /// </summary>
+        /// <param name="data">json string</param>
+        /// <returns></returns>
         private bool ValidateJson(string data)
         {
             JSchema schema = JSchema.Parse(@"{'description': 'Customer', 'type': 'object','properties':
@@ -70,6 +78,9 @@ namespace TestWebApi.Utilities
             return customer.IsValid(schema);
         }
 
+        /// <summary>
+        /// Configure nhibernate validator
+        /// </summary>
         private void ConfigureValidator()
         {
             INHVConfiguration nhvc = new XmlConfiguration();

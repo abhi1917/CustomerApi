@@ -18,7 +18,7 @@ namespace TestWebApi.Controllers
     public class CustomerController : ApiController
     {
         /// <summary>
-        /// /GetCustomers:This api returns a list containing all the customers in the db.
+        /// /GetCustomers:This api returns a list containing all the customers with the lastName in the db.
         /// </summary>
         /// <returns>List of customers</returns>
         [HttpGet]
@@ -41,7 +41,7 @@ namespace TestWebApi.Controllers
         }
 
         /// <summary>
-        /// /GetCustomers:This api returns a list containing all the customers in the db.
+        /// /GetCustomers:This api returns a list containing the customer with the id in the db.
         /// </summary>
         /// <returns>List of customers</returns>
         [HttpGet]

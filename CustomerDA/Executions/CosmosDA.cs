@@ -27,17 +27,29 @@ namespace CustomerDA.Executions
             _databaseId = databaseId;
             _containerId = containerId;
         }
-
+        /// <summary>
+        /// Creates the database if it does not exist
+        /// </summary>
+        /// <returns></returns>
         private async Task CreateDatabaseAsync()
         {
             _database = await _cosmosClient.CreateDatabaseIfNotExistsAsync(_databaseId);
         }
 
+        /// <summary>
+        /// Creates a container if it does not exist
+        /// </summary>
+        /// <returns></returns>
         private async Task CreateContainerAsync()
         {
             _container = await _database.CreateContainerIfNotExistsAsync(_containerId, "/LastName");
         }
 
+        /// <summary>
+        /// Adds Customer to the database
+        /// </summary>
+        /// <param name="customer">data to be added</param>
+        /// <returns></returns>
         private async Task AddItemsToContainerAsync(CustomerCosmos customer)
         {
             try
@@ -52,6 +64,11 @@ namespace CustomerDA.Executions
             }
         }
 
+        /// <summary>
+        /// Queries all the customers with the lastname
+        /// </summary>
+        /// <param name="lastName">last name of customer</param>
+        /// <returns></returns>
         private async Task SelectCustomerWithLastName(string lastName)
         {
             try
@@ -82,6 +99,10 @@ namespace CustomerDA.Executions
             }
         }
 
+        /// <summary>
+        /// Queries all customers
+        /// </summary>
+        /// <returns></returns>
         private async Task SelectCustomers()
         {
             try
@@ -113,6 +134,12 @@ namespace CustomerDA.Executions
             }
         }
 
+        /// <summary>
+        /// Reads customer by id
+        /// </summary>
+        /// <param name="id">id of customer</param>
+        /// <param name="lastName">last name of customer which is partition key</param>
+        /// <returns></returns>
         private async Task ReadCustomerById(string id,string lastName)
         {
             try
@@ -136,6 +163,12 @@ namespace CustomerDA.Executions
                 throw ex;
             }
         }
+
+        /// <summary>
+        /// Adds new customer
+        /// </summary>
+        /// <param name="customer">customer details</param>
+        /// <returns></returns>
         public async Task AddCustomerItem(CustomerCosmos customer)
         {
             try
@@ -149,6 +182,11 @@ namespace CustomerDA.Executions
             }
         }
 
+        /// <summary>
+        /// Gets a list of customers with same last name
+        /// </summary>
+        /// <param name="lastName">last name </param>
+        /// <returns></returns>
         public async Task GetCustomersWithLastName(string lastName)
         {
             try
@@ -162,6 +200,10 @@ namespace CustomerDA.Executions
             }
         }
 
+        /// <summary>
+        /// Gets all customers
+        /// </summary>
+        /// <returns></returns>
         public async Task GetCustomers()
         {
             try
@@ -176,6 +218,12 @@ namespace CustomerDA.Executions
             }
         }
 
+        /// <summary>
+        /// Gets customer by Id
+        /// </summary>
+        /// <param name="id">customer id</param>
+        /// <param name="lastName">customer last name which is the partition key</param>
+        /// <returns></returns>
         public async Task GetCustomerbyID(string id,string lastName)
         {
             try
