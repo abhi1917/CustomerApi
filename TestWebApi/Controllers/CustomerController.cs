@@ -21,6 +21,52 @@ namespace TestWebApi.Controllers
         /// </summary>
         /// <returns>List of customers</returns>
         [HttpGet]
+        public HttpResponseMessage GetCustomers(string lastName)
+        {
+            var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString()+"&lastName="+lastName;
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage response;
+            try
+            {
+                var clientResponse = httpClient.GetAsync(url);
+                clientResponse.Wait();
+                return clientResponse.Result;
+            }
+            catch(Exception ex)
+            {
+                response = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// /GetCustomers:This api returns a list containing all the customers in the db.
+        /// </summary>
+        /// <returns>List of customers</returns>
+        [HttpGet]
+        public HttpResponseMessage GetCustomersById(string id,string lastName)
+        {
+            var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString() + "&id=" + id+"&lastName="+lastName;
+            HttpClient httpClient = new HttpClient();
+            HttpResponseMessage response;
+            try
+            {
+                var clientResponse = httpClient.GetAsync(url);
+                clientResponse.Wait();
+                return clientResponse.Result;
+            }
+            catch (Exception ex)
+            {
+                response = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
+                return response;
+            }
+        }
+
+        /// <summary>
+        /// /GetCustomers:This api returns a list containing all the customers in the db.
+        /// </summary>
+        /// <returns>List of customers</returns>
+        [HttpGet]
         public HttpResponseMessage GetCustomers()
         {
             var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString();
@@ -32,7 +78,7 @@ namespace TestWebApi.Controllers
                 clientResponse.Wait();
                 return clientResponse.Result;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 response = Request.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
                 return response;
@@ -60,6 +106,7 @@ namespace TestWebApi.Controllers
                 {
                     customer.AgentID = Request.Headers.GetValues("agentID").FirstOrDefault();
                 }
+                customer.CustomerId = GenerateCustomerId.Generate(9);
                 if (ValidateCustomer.Validate(customer))
                 {
                     var content = JsonConvert.SerializeObject(customer);

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.1082
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerDA", "CustomerDA\CustomerDA.csproj", "{2D5FACD4-EEE0-437B-8EFF-02EED88AADD0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFunction", "TestFunction\TestFunction.csproj", "{A8A94C80-3F68-44A2-9791-10B54FFE3C1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestFunction", "TestFunction\TestFunction.csproj", "{A8A94C80-3F68-44A2-9791-10B54FFE3C1F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWebApi", "TestWebApi\TestWebApi.csproj", "{5F4993D5-893E-4674-A8F9-DA74BEB82240}"
 EndProject
