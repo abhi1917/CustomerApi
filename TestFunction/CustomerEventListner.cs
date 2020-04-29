@@ -15,7 +15,7 @@ namespace TestFunction
     public static class CustomerEventListner
     {
         [FunctionName("CustomerEventListner")]
-        public static void Run([EventHubTrigger("customer", Connection = "EventHub", ConsumerGroup = "$Default")] EventData[] events, TraceWriter log)
+        public static void Run([EventHubTrigger("%EventHubName%", Connection = "EventHub", ConsumerGroup = "$Default")] EventData[] events, TraceWriter log)
         {
             HttpClient httpClient = new HttpClient();
             foreach (EventData eventData in events)
