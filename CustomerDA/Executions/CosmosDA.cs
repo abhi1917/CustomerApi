@@ -40,9 +40,9 @@ namespace CustomerDA.Executions
         /// Creates a container if it does not exist
         /// </summary>
         /// <returns></returns>
-        private async Task CreateContainerAsync()
+        private async Task CreateContainerAsync(string partitonKey)
         {
-            _container = await _database.CreateContainerIfNotExistsAsync(_containerId, "/LastName");
+            _container = await _database.CreateContainerIfNotExistsAsync(_containerId, partitonKey);
         }
 
         /// <summary>
@@ -63,6 +63,7 @@ namespace CustomerDA.Executions
                 
             }
         }
+
 
         /// <summary>
         /// Queries all the customers with the lastname
@@ -174,7 +175,7 @@ namespace CustomerDA.Executions
             try
             {
                 await CreateDatabaseAsync();
-                await CreateContainerAsync();
+                await CreateContainerAsync("/LastName");
                 await AddItemsToContainerAsync(customer);
             }catch(Exception ex)
             {
@@ -192,7 +193,7 @@ namespace CustomerDA.Executions
             try
             {
                 await CreateDatabaseAsync();
-                await CreateContainerAsync();
+                await CreateContainerAsync("/LastName");
                 await SelectCustomerWithLastName(lastName);
             }catch(Exception ex)
             {
@@ -209,7 +210,7 @@ namespace CustomerDA.Executions
             try
             {
                 await CreateDatabaseAsync();
-                await CreateContainerAsync();
+                await CreateContainerAsync("/LastName");
                 await SelectCustomers();
             }
             catch (Exception ex)
@@ -229,7 +230,7 @@ namespace CustomerDA.Executions
             try
             {
                 await CreateDatabaseAsync();
-                await CreateContainerAsync();
+                await CreateContainerAsync("/LastName");
                 await ReadCustomerById(id,lastName);
             }
             catch (Exception ex)

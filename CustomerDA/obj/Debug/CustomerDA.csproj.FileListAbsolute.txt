@@ -1,16 +1,8 @@
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Azure.Cosmos.ServiceInterop.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Cosmos.CRTCompat.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\CustomerDA.dll.config
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\CustomerDA.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\CustomerDA.pdb
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.dll
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.xml
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CoreCompileInputs.cache
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CopyComplete
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.dll
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.pdb
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Azure.Cosmos.ServiceInterop.dll
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Cosmos.CRTCompat.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Win32.Primitives.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\netstandard.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.AppContext.dll
@@ -106,6 +98,8 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\D
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Xml.XmlSerializer.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Xml.XPath.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Xml.XPath.XDocument.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Azure.Cosmos.Client.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Azure.Cosmos.Core.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Azure.Cosmos.Direct.dll
@@ -122,6 +116,8 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\D
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.ServiceModel.Primitives.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Threading.Tasks.Extensions.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.ValueTuple.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Microsoft.Azure.Cosmos.Client.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\Newtonsoft.Json.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Buffers.xml
@@ -130,4 +126,7 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\D
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.ValueTuple.xml
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csprojAssemblyReference.cache
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CoreCompileInputs.cache
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CopyComplete
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.pdb

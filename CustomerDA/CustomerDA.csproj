@@ -133,6 +133,7 @@
       <DependentUpon>CustomerDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\CustomerDetail.cs" />
+    <Compile Include="Models\CustomerEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
