@@ -21,15 +21,15 @@ namespace TestWebApi.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public async System.Threading.Tasks.Task<HttpResponseMessage> GetEventAsync()
+        public async System.Threading.Tasks.Task<HttpResponseMessage> GetEventAsync(string customerId)
         {
             HttpResponseMessage response;
             try
             {
+                string id = customerId.Replace("\"", "");
                 CustomerEventRaiser customerEventRaiser = new CustomerEventRaiser();
-                string customerId = GenerateCustomerId.Generate(9);
-                await customerEventRaiser.RaiseNewCustomerEvent(customerId);
-                response = Request.CreateResponse(HttpStatusCode.OK, "new customer "+ customerId + " created using event hub");
+                await customerEventRaiser.RaiseNewCustomerEvent(id);
+                response = Request.CreateResponse(HttpStatusCode.OK, "new customer "+ id + " created using event hub");
             }
             catch(Exception ex)
             {

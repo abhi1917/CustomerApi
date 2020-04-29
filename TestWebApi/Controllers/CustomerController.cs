@@ -115,6 +115,11 @@ namespace TestWebApi.Controllers
                 response = result.Result;
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
+                    HttpClient eventHttpClient = new HttpClient();
+                    var eventurl= ConfigurationManager.AppSettings["EventApiUrl"].ToString()+"?customerId="+customer.CustomerId;
+                    eventHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ConfigurationManager.AppSettings["authToken"].ToString());
+                    var eventresponse=eventHttpClient.GetAsync(eventurl);
+                    eventresponse.Wait();
                     response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
                 }
                 return response;
