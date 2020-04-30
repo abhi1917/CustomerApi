@@ -227,8 +227,8 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\l
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\nl\NHibernate.Validator.resources.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\pl\NHibernate.Validator.resources.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\pt-BR\NHibernate.Validator.resources.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csprojAssemblyReference.cache
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csproj.CoreCompileInputs.cache
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csproj.CopyComplete
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.dll
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.pdb
-C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\obj\Debug\TestWebApi.csprojAssemblyReference.cache

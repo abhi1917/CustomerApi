@@ -24,7 +24,7 @@ namespace TestWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage GetCustomers(string lastName)
         {
-            var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString()+"&lastName="+lastName;
+            var url = Environment.GetEnvironmentVariable("CustomersViewUrl")+"&lastName="+lastName;
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try
@@ -47,7 +47,7 @@ namespace TestWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage GetCustomersById(string id,string lastName)
         {
-            var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString() + "&id=" + id+"&lastName="+lastName;
+            var url = Environment.GetEnvironmentVariable("CustomersViewUrl") + "&id=" + id+"&lastName="+lastName;
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try
@@ -70,7 +70,7 @@ namespace TestWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage GetCustomers()
         {
-            var url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString();
+            var url = Environment.GetEnvironmentVariable("CustomersViewUrl");
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try
@@ -97,7 +97,7 @@ namespace TestWebApi.Controllers
         {
             HttpResponseMessage response;
             HttpClient httpClient = new HttpClient();
-            var url= ConfigurationManager.AppSettings["CutomerAddUrl"].ToString();
+            var url= Environment.GetEnvironmentVariable("CutomerAddUrl").ToString();
             try
             {
                 if (Request.Headers.Contains("transactionID"))
@@ -116,8 +116,8 @@ namespace TestWebApi.Controllers
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     HttpClient eventHttpClient = new HttpClient();
-                    var eventurl= ConfigurationManager.AppSettings["EventApiUrl"].ToString()+"?customerId="+customer.CustomerId;
-                    eventHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", ConfigurationManager.AppSettings["authToken"].ToString());
+                    var eventurl= Environment.GetEnvironmentVariable("EventApiUrl")+"?customerId="+customer.CustomerId;
+                    eventHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Environment.GetEnvironmentVariable("authToken"));
                     var eventresponse=eventHttpClient.GetAsync(eventurl);
                     eventresponse.Wait();
                     response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");

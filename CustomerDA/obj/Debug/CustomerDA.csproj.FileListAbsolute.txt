@@ -126,6 +126,7 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\D
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.Threading.Tasks.Extensions.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\bin\Debug\System.ValueTuple.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csprojAssemblyReference.cache
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CoreCompileInputs.cache
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.csproj.CopyComplete
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\CustomerDA\obj\Debug\CustomerDA.dll

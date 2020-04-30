@@ -47,7 +47,7 @@ namespace TestWebApi.Controllers
         [HttpPost]
         public HttpResponseMessage PostCustomer(CustomerEvent customer)
         {
-            var url = ConfigurationManager.AppSettings["CustomerEventUrl"].ToString();
+            var url = Environment.GetEnvironmentVariable("CustomerEventUrl");
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try

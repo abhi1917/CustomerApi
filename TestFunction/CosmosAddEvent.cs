@@ -14,7 +14,7 @@ namespace TestFunction
         [FunctionName("CosmosAddEvent")]
         public static void Run([HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage req, 
             [DocumentDB(
-            databaseName: "%EventDb%",
+            databaseName: "%databaseId%",
             collectionName: "%EventContainer%",
             ConnectionStringSetting = "AzureconnectionString",CreateIfNotExists = true,PartitionKey ="%CosmosPartitionKey%")]out object customer, TraceWriter log)
         {

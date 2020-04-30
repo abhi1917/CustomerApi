@@ -170,9 +170,9 @@
             </summary>
             <returns>An under-estimate of the length.</returns>
         </member>
-        <member name="M:Microsoft.Azure.Cosmos.ItemBatchOperation.EncryptAndMaterializeResourceAsync(Microsoft.Azure.Cosmos.CosmosSerializerCore,System.Threading.CancellationToken)">
+        <member name="M:Microsoft.Azure.Cosmos.ItemBatchOperation.MaterializeResourceAsync(Microsoft.Azure.Cosmos.CosmosSerializerCore,System.Threading.CancellationToken)">
             <summary>
-            Encrypts (if encryption options are set) and materializes the operation's resource into a Memory{byte} wrapping a byte array.
+            Materializes the operation's resource into a Memory{byte} wrapping a byte array.
             </summary>
             <param name="serializerCore">Serializer to serialize user provided objects to JSON.</param>
             <param name="cancellationToken"><see cref="T:System.Threading.CancellationToken"/> for cancellation.</param>
@@ -189,7 +189,7 @@
             </summary>
             <param name="disposing">Indicates whether to dispose managed resources or not.</param>
         </member>
-        <member name="M:Microsoft.Azure.Cosmos.ItemBatchOperation`1.EncryptAndMaterializeResourceAsync(Microsoft.Azure.Cosmos.CosmosSerializerCore,System.Threading.CancellationToken)">
+        <member name="M:Microsoft.Azure.Cosmos.ItemBatchOperation`1.MaterializeResourceAsync(Microsoft.Azure.Cosmos.CosmosSerializerCore,System.Threading.CancellationToken)">
             <summary>
             Materializes the operation's resource into a Memory{byte} wrapping a byte array.
             </summary>
@@ -542,11 +542,7 @@
             The indexing directive to use with a request.
             </value>
             <seealso cref="T:Microsoft.Azure.Cosmos.IndexingPolicy"/>
-        </member>
-        <member name="P:Microsoft.Azure.Cosmos.TransactionalBatchItemRequestOptions.EncryptionOptions">
-            <summary>
-            Options to encrypt properties of the item.
-            </summary>
+            <seealso cref="P:Microsoft.Azure.Cosmos.TransactionalBatchItemRequestOptions.IndexingDirective"/>
         </member>
         <member name="T:Microsoft.Azure.Cosmos.TransactionalBatchOperationResult">
             <summary>
@@ -2376,14 +2372,6 @@
             2. the Azure Cosmos DB account has more than one region
             </remarks>
         </member>
-        <member name="P:Microsoft.Azure.Cosmos.ConnectionPolicy.EnableTcpConnectionEndpointRediscovery">
-            <summary>
-            Gets or sets the flag to enable address cache refresh on connection reset notification.
-            </summary>
-            <value>
-            The default value is false
-            </value>
-        </member>
         <member name="P:Microsoft.Azure.Cosmos.ConnectionPolicy.Default">
             <summary>
             Gets the default connection policy used to connect to the Azure Cosmos DB service.
@@ -3067,17 +3055,7 @@
             When this property is not specified, the SDK uses the write region as the preferred region for all operations.
             </remarks>
             <seealso cref="M:Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder.WithApplicationRegion(System.String)"/>
-            <seealso href="https://docs.microsoft.com/azure/cosmos-db/high-availability#high-availability-with-cosmos-db-in-the-event-of-regional-outages">High availability on regional outages</seealso>
-        </member>
-        <member name="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ApplicationPreferredRegions">
-            <summary>
-            Gets and sets the preferred regions for geo-replicated database accounts in the Azure Cosmos DB service. 
-            </summary>
-            <remarks>
-            When this property is specified, the SDK will use the region list in the provided order to define the endpoint failover order.
-            This configuration is an alternative to <see cref="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ApplicationRegion"/>, either one can be set but not both.
-            </remarks>
-            <seealso href="https://docs.microsoft.com/azure/cosmos-db/high-availability#high-availability-with-cosmos-db-in-the-event-of-regional-outages">High availability on regional outages</seealso>
+            <seealso href="https://docs.microsoft.com/azure/cosmos-db/how-to-multi-master">Configure multi-master</seealso>
         </member>
         <member name="P:Microsoft.Azure.Cosmos.CosmosClientOptions.GatewayModeMaxConnectionLimit">
             <summary>
@@ -3250,7 +3228,7 @@
             <remarks>
             When the value of this property is false, the SDK will automatically discover write and read regions, and use them when the configured application region is not available.
             When set to true, availability is limited to the endpoint specified on the CosmosClient constructor.
-            Defining the <see cref="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ApplicationRegion"/> or <see cref="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ApplicationPreferredRegions"/>  is not allowed when setting the value to true.
+            Defining the <see cref="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ApplicationRegion"/> is not allowed when setting the value to true.
             </remarks>
             <seealso href="https://docs.microsoft.com/azure/cosmos-db/high-availability">High availability</seealso>
         </member>
@@ -3258,17 +3236,6 @@
             <summary>
             Allows optimistic batching of requests to service. Setting this option might impact the latency of the operations. Hence this option is recommended for non-latency sensitive scenarios only.
             </summary>
-        </member>
-        <member name="P:Microsoft.Azure.Cosmos.CosmosClientOptions.EnableTcpConnectionEndpointRediscovery">
-            <summary>
-            Gets or sets the flag to enable address cache refresh on TCP connection reset notification.
-            </summary>
-            <remarks>
-            Does not apply if <see cref="F:Microsoft.Azure.Cosmos.ConnectionMode.Gateway"/> is used.
-            </remarks>
-            <value>
-            The default value is false
-            </value>
         </member>
         <member name="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ConnectionProtocol">
             <summary>
@@ -10418,7 +10385,7 @@
             <returns>The current <see cref="T:Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder"/>.</returns>
             <seealso cref="P:Microsoft.Azure.Cosmos.CosmosClientOptions.ConnectionMode"/>
         </member>
-        <member name="M:Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder.WithConnectionModeDirect(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Microsoft.Azure.Cosmos.PortReuseMode},System.Nullable{System.Boolean})">
+        <member name="M:Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder.WithConnectionModeDirect(System.Nullable{System.TimeSpan},System.Nullable{System.TimeSpan},System.Nullable{System.Int32},System.Nullable{System.Int32},System.Nullable{Microsoft.Azure.Cosmos.PortReuseMode})">
             <summary>
             Sets the connection mode to Direct. This is used by the client when connecting to the Azure Cosmos DB service.
             </summary>
@@ -10448,10 +10415,6 @@
             <param name="portReuseMode">
             (Direct/TCP) Controls the client port reuse policy used by the transport stack.
             The default value is PortReuseMode.ReuseUnicastPort.
-            </param>
-            /// <param name="enableTcpConnectionEndpointRediscovery">
-            (Direct/TCP) Controls the address cache refresh on TCP connection reset notification.
-            The default value is false.
             </param>
             <remarks>
             For more information, see <see href="https://docs.microsoft.com/azure/documentdb/documentdb-performance-tips#direct-connection">Connection policy: Use direct connection mode</see>.
