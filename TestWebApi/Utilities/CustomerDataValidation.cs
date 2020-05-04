@@ -31,30 +31,39 @@ namespace TestWebApi.Utilities
                 stream.BaseStream.Position = 0;
                 rawRequest = stream.ReadToEnd();
             }
-            if (!ValidateJson(rawRequest))
-            {
-                string jsonexample = @"{'FirstName': {'type':'string','required': true},'LastName': {'type':'string','required': true},'Address': {'type':'string','required': true},'Phonenumber': {'type':'string','required': true}}";
-                actionContext.Response = actionContext.Request.CreateErrorResponse(System.Net.HttpStatusCode.BadRequest, "Invalid Json! It should have the following structure: "+ jsonexample);
-                return;
-            }
-            Customer customer = JsonConvert.DeserializeObject<Customer>(rawRequest);
-            ConfigureValidator();
             string errors = "";
-            if (!actionContext.Request.Headers.Contains("transactionID"))
+            if (null != rawRequest)
             {
-                errors += "transactionID is required in the header! ";
-            }
-            if (!actionContext.Request.Headers.Contains("agentID"))
-            {
-                errors += "agentID is required in the header! ";
-            }
-            if (!_ve.IsValid(customer))
-            {
-                var results = _ve.Validate(customer);
-                foreach(InvalidValue error in results)
+                if (!ValidateJson(rawRequest))
                 {
-                    errors += error.Message+". ";
+                    string jsonexample = @"{'FirstName': {'type':'string','required': true},'LastName': {'type':'string','required': true},'Address': {'type':'string','required': true},'Phonenumber': {'type':'string','required': true}}";
+                    errors += "Invalid Json! It should have the following structure: " + jsonexample;
                 }
+                else
+                {
+                    Customer customer = JsonConvert.DeserializeObject<Customer>(rawRequest);
+                    ConfigureValidator();
+                    if (!actionContext.Request.Headers.Contains("transactionID"))
+                    {
+                        errors += "transactionID is required in the header! ";
+                    }
+                    if (!actionContext.Request.Headers.Contains("agentID"))
+                    {
+                        errors += "agentID is required in the header! ";
+                    }
+                    if (!_ve.IsValid(customer))
+                    {
+                        var results = _ve.Validate(customer);
+                        foreach (InvalidValue error in results)
+                        {
+                            errors += error.Message + ". ";
+                        }
+                    }
+                }
+            }
+            else
+            {
+                errors += "Customer data missing in body of request!";
             }
             if (errors != "")
             {

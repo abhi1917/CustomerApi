@@ -28,8 +28,15 @@ namespace TestFunction
                 string containerId = System.Environment.GetEnvironmentVariable("containerId");
                 CosmosDA cosmosDA = new CosmosDA(endpointUri, primaryKey, databaseId, containerId);
                 var customer = await req.Content.ReadAsAsync<CustomerCosmos>();
-                await cosmosDA.AddCustomerItem(customer);
-                response = req.CreateResponse(HttpStatusCode.OK);
+                if (null != customer)
+                {
+                    await cosmosDA.AddCustomerItem(customer);
+                    response = req.CreateResponse(HttpStatusCode.OK);
+                }
+                else
+                {
+                    throw new Exception("Failed to serialize object!");
+                }
             }
             catch(CosmosException ex)
             {
@@ -45,7 +52,7 @@ namespace TestFunction
             }
             catch (Exception ex)
             {
-                log.Info(ex.Message);
+                log.Error(ex.Message);
                 response = req.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
             return response;

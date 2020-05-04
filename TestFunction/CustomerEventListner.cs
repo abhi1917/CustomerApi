@@ -5,6 +5,7 @@ using Microsoft.Azure.WebJobs.ServiceBus;
 using Microsoft.ServiceBus.Messaging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -18,24 +19,38 @@ namespace TestFunction
         public static void Run([EventHubTrigger("%EventHubName%", Connection = "EventHub", ConsumerGroup = "$Default")] EventData[] events, TraceWriter log)
         {
             HttpClient httpClient = new HttpClient();
-            foreach (EventData eventData in events)
+            try
             {
-                string value = "";
-                using (var reader = new StreamReader(eventData.GetBodyStream(), Encoding.UTF8))
+                foreach (EventData eventData in events)
                 {
-                    value = reader.ReadToEnd();
-                    CustomerSendEvent customer = new CustomerSendEvent
+                    string value = "";
+                    using (var reader = new StreamReader(eventData.GetBodyStream(), Encoding.UTF8))
                     {
-                        CustomerId = value,
-                        AgentId = "EventHub"
-                    };
-                    var url= System.Environment.GetEnvironmentVariable("apiEventInvokeurl");
-                    var content = JsonConvert.SerializeObject(customer);
-                    var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
-                    httpClient.DefaultRequestHeaders.Authorization =new AuthenticationHeaderValue("Bearer", System.Environment.GetEnvironmentVariable("apiAuthToken"));
-                    var result = httpClient.PostAsync(url, stringContent);
+                        value = reader.ReadToEnd();
+                        CustomerSendEvent customer = new CustomerSendEvent
+                        {
+                            CustomerId = value,
+                            AgentId = "EventHub"
+                        };
+                        var url = System.Environment.GetEnvironmentVariable("apiEventInvokeurl");
+                        var content = JsonConvert.SerializeObject(customer);
+                        if (null != content)
+                        {
+                            var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
+                            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", System.Environment.GetEnvironmentVariable("apiAuthToken"));
+                            var result = httpClient.PostAsync(url, stringContent);
+                        }
+                        else
+                        {
+                            throw new Exception("Failed to serialize object!");
+                        }
+                    }
+                    log.Info(value);
                 }
-                log.Info(value);
+            }
+            catch(Exception ex)
+            {
+                log.Error(ex.Message);
             }
         }
     }

@@ -21,12 +21,19 @@ namespace TestFunction
             try
             {
                 customer = req.Content.ReadAsAsync<object>().Result;
-                log.Info("Insertion done");
+                if (null != customer)
+                {
+                    log.Info("Insertion done");
+                }
+                else
+                {
+                    throw new Exception("Failed to serialize object!");
+                }
             }
             catch(Exception ex)
             {
                 customer = null;
-                log.Info(ex.Message);
+                log.Error(ex.Message);
             }
         }
     }

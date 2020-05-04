@@ -21,7 +21,7 @@ namespace TestFunction
             try
             {
                 var customer = await req.Content.ReadAsAsync<Customer>();
-                if (customer != null)
+                if (null != customer)
                 {
                     string connectionString= System.Configuration.ConfigurationManager.ConnectionStrings["WebapiDBEntities"].ConnectionString;
                     using (var db = new WebapiDBEntities(connectionString))
@@ -33,12 +33,12 @@ namespace TestFunction
                 }
                 else
                 {
-                    response = req.CreateResponse(HttpStatusCode.BadRequest);
+                    throw new Exception("Failed to serialize object!");
                 }
             }
             catch (Exception ex)
             {
-                log.Info(ex.Message);
+                log.Error(ex.Message);
                 response = req.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
             return response;

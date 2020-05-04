@@ -53,14 +53,21 @@ namespace TestWebApi.Controllers
             try
             {
                 var content = JsonConvert.SerializeObject(customer);
-                var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
-                var result = httpClient.PostAsync(url, stringContent);
-                response = result.Result;
-                if (response.StatusCode == HttpStatusCode.OK)
+                if (null != content)
                 {
-                    response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
+                    var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
+                    var result = httpClient.PostAsync(url, stringContent);
+                    response = result.Result;
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
+                    }
+                    return response;
                 }
-                return response;
+                else
+                {
+                    throw new Exception("Failed to serialize object!");
+                }
             }
             catch (Exception ex)
             {

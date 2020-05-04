@@ -42,8 +42,8 @@ namespace TestFunction
             }
             catch (Exception ex)
             {
-                log.Info(ex.Message);
-                log.Info(ex.InnerException.Message);
+                log.Error(ex.Message);
+                log.Error(ex.InnerException.Message);
                 response = req.CreateErrorResponse(HttpStatusCode.InternalServerError, ex);
             }
             return response;
