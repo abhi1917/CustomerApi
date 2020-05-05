@@ -45,9 +45,10 @@ namespace TestWebApi.Controllers
         /// </summary>
         /// <returns>List of customers</returns>
         [HttpGet]
-        public HttpResponseMessage GetCustomersById(string id,string lastName)
+        public HttpResponseMessage GetCustomersById(string id)
         {
-            var url = Environment.GetEnvironmentVariable("CustomersViewUrl") + "&id=" + id+"&lastName="+lastName;
+            var url = Environment.GetEnvironmentVariable("CustomersViewByIdUrl");
+            url = url.Replace("{id}", id).Replace("\"","");
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try

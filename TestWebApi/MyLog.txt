@@ -123,3 +123,4 @@
 2020-04-29 14:58:59,491 [8] INFO  API logger [(null)] - Executed action GET for http://localhost:52376/api/CustomerEvent?customerId="eventTest" at 4/29/2020 2:58:59 PM
 2020-04-29 15:01:22,149 [15] INFO  API logger [(null)] - Executing action GET for http://localhost:52376/api/CustomerEvent?customerId="eventTest" at 4/29/2020 3:01:22 PM
 2020-04-29 15:02:42,434 [15] INFO  API logger [(null)] - Executed action GET for http://localhost:52376/api/CustomerEvent?customerId="eventTest" at 4/29/2020 3:02:42 PM
+2020-05-05 07:00:54,882 [5] INFO  API logger [(null)] - Executing action GET for http://localhost:52376/api/Customer?id="HKSNIQHVY" at 5/5/2020 7:00:54 AM
