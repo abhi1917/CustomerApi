@@ -20,8 +20,6 @@ namespace TestFunction
             databaseName: "%databaseId%",
             collectionName: "%containerId%",
             ConnectionStringSetting = "AzureconnectionString", 
-            CreateIfNotExists = true, 
-            PartitionKey = "%CosmosPartitionKey%",
             SqlQuery ="SELECT * FROM c WHERE c.id={id}")]IEnumerable<CustomerDetail> customers, TraceWriter log)
         {
             log.Info("Customer View begins");

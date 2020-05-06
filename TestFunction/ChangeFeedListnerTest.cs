@@ -25,6 +25,7 @@ namespace TestFunction
                 HttpClient httpClient = new HttpClient();
                 if (documents != null && documents.Count > 0)
                 {
+                    log.Info(documents[0].ToString());
                     log.Verbose("Documents modified " + documents.Count);
                     
                     CustomerSendEvent customer = new CustomerSendEvent

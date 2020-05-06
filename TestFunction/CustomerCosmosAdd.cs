@@ -28,6 +28,7 @@ namespace TestFunction
                 string containerId = System.Environment.GetEnvironmentVariable("containerId");
                 CosmosDA cosmosDA = new CosmosDA(endpointUri, primaryKey, databaseId, containerId);
                 var customer = await req.Content.ReadAsAsync<CustomerCosmos>();
+                log.Info("LastName: "+customer.LastName+ "FirstName: "+customer.FirstName + "CustomerId: " + customer.CustomerId + "AgentID: " + customer.AgentID + "Address: " + customer.Address);
                 if (null != customer)
                 {
                     await cosmosDA.AddCustomerItem(customer);
