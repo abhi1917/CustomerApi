@@ -31,7 +31,7 @@ namespace TestWebApi.Utilities
         /// <param name="actionExecutedContext">current http context</param>
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
-            tc.InstrumentationKey = Environment.GetEnvironmentVariable("InstrumentationKey");
+            tc.InstrumentationKey = "f5b36c01-ec79-479e-988e-d66b3c1fbef2";
             tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
