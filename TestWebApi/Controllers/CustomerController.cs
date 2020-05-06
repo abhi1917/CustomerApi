@@ -109,7 +109,7 @@ namespace TestWebApi.Controllers
                 {
                     customer.AgentID = Request.Headers.GetValues("agentID").FirstOrDefault();
                 }
-                customer.CustomerId = GenerateCustomerId.Generate(9);
+                customer.id = GenerateCustomerId.Generate(9);
                 var content = JsonConvert.SerializeObject(customer);
                 var stringContent = new StringContent(content, UnicodeEncoding.UTF8, "application/json");
                 var result = httpClient.PostAsync(url, stringContent);
@@ -117,7 +117,7 @@ namespace TestWebApi.Controllers
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
                     HttpClient eventHttpClient = new HttpClient();
-                    var eventurl= Environment.GetEnvironmentVariable("EventApiUrl")+"?customerId="+customer.CustomerId;
+                    var eventurl= Environment.GetEnvironmentVariable("EventApiUrl")+"?customerId="+customer.id;
                     eventHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Environment.GetEnvironmentVariable("authToken"));
                     var eventresponse=eventHttpClient.GetAsync(eventurl);
                     eventresponse.Wait();

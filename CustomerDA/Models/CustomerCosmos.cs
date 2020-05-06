@@ -9,8 +9,7 @@ namespace CustomerDA.Models
 {
     public class CustomerCosmos
     {
-        [JsonProperty(PropertyName = "id")]
-        public string CustomerId { get; set; }
+        public string id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Address { get; set; }
