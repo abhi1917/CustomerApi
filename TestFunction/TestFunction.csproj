@@ -13,9 +13,6 @@
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CustomerDA\CustomerDA.csproj" />
-  </ItemGroup>
-  <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
