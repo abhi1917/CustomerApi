@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Azure.WebJobs.Extensions</id>
+    <version>2.2.0</version>
+    <title>Microsoft.Azure.WebJobs.Extensions</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_enu.htm</licenseUrl>
+    <projectUrl>https://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources</projectUrl>
+    <description>This package contains the runtime assemblies for Microsoft.Azure.WebJobs.Extensions. For more information, please visit https://azure.microsoft.com/en-us/documentation/articles/websites-webjobs-resources</description>
+    <summary>Microsoft.Azure.WebJobs.Extensions adds additional triggers, binders and extensions to the WebJobs SDK.</summary>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>Microsoft Azure WebJobs Jobs Extensions Files Scheduler Cron Storage Table Blob Queue windowsazureofficial Web</tags>
+    <dependencies>
+      <dependency id="Microsoft.Azure.WebJobs" version="2.2.0" />
+      <dependency id="ncrontab" version="3.3.0" />
+      <dependency id="Microsoft.Tpl.Dataflow" version="4.5.24" />
+    </dependencies>
+  </metadata>
+</package>

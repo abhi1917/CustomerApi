@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>Microsoft.Azure.WebJobs.ServiceBus</id>
+    <version>2.2.0</version>
+    <title>Microsoft.Azure.WebJobs.ServiceBus</title>
+    <authors>Microsoft</authors>
+    <owners>Microsoft</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <licenseUrl>http://www.microsoft.com/web/webpi/eula/aspnetcomponent_rtw_enu.htm</licenseUrl>
+    <projectUrl>http://go.microsoft.com/fwlink/?LinkID=320972</projectUrl>
+    <description>This package contains the runtime assemblies for Microsoft.Azure.WebJobs.ServiceBus. For more information, please visit http://go.microsoft.com/fwlink/?LinkID=320971</description>
+    <summary>Microsoft.Azure.WebJobs.ServiceBus is a library for writing Microsoft Azure WebJobs using Service Bus. This package contains the runtime assemblies for Microsoft.Azure.WebJobs.ServiceBus.</summary>
+    <releaseNotes>Release Notes: https://github.com/Azure/azure-webjobs-sdk/releases</releaseNotes>
+    <copyright>© Microsoft Corporation. All rights reserved.</copyright>
+    <language>en-US</language>
+    <tags>Microsoft Azure WebJobs Jobs ServiceBus windowsazureofficial Web Service Bus</tags>
+    <dependencies>
+      <dependency id="Microsoft.Azure.WebJobs" version="[2.2.0]" />
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+      <dependency id="WindowsAzure.ServiceBus" version="3.4.5" />
+      <dependency id="Microsoft.Azure.ServiceBus.EventProcessorHost" version="2.2.10" />
+    </dependencies>
+  </metadata>
+</package>
