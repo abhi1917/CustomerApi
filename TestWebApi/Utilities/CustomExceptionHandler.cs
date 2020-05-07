@@ -21,7 +21,7 @@ namespace TestWebApi.Utilities
         {
             var result = new HttpResponseMessage(HttpStatusCode.InternalServerError)
             {
-                Content = new StringContent("Internal Server Error Occurred"),
+                Content = new StringContent(context.Exception.Message),
                 ReasonPhrase = "Exception"
             };
 
