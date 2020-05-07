@@ -13,7 +13,6 @@
     </property>
     <property name="Address">
       <notnull-notempty message="The address is mandatory"/>
-      <pattern regex="^[A-Za-z]+$" message="Name can contain only alphabets"/>
     </property>
     <property name="Phonenumber">
       <notnull-notempty message="The phone number is mandatory"/>
