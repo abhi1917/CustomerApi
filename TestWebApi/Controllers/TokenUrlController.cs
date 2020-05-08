@@ -30,7 +30,7 @@ namespace TestWebApi.Controllers
                             .ConfigureAwait(false);
                     if (secret.Value == clientSecret)
                     {
-                        httpResponse = Request.CreateResponse(HttpStatusCode.OK, "TempAuth1234");
+                        httpResponse = Request.CreateResponse(HttpStatusCode.OK, Environment.GetEnvironmentVariable("authToken"));
                     }
                     else
                     {
