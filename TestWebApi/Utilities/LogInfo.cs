@@ -2,6 +2,7 @@
 using Microsoft.ApplicationInsights;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -31,7 +32,16 @@ namespace TestWebApi.Utilities
         /// <param name="actionExecutedContext">current http context</param>
         public override void OnActionExecuted(HttpActionExecutedContext actionExecutedContext)
         {
-            tc.InstrumentationKey = Environment.GetEnvironmentVariable("InstrumentationKey");
+            string key = "";
+            if (ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+            {
+                key = ConfigurationManager.AppSettings["InstrumentationKey"].ToString();
+            }
+            else
+            {
+                key = Environment.GetEnvironmentVariable("InstrumentationKey");
+            }
+            tc.InstrumentationKey = key;
             tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();

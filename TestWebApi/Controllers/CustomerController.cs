@@ -10,6 +10,7 @@ using Newtonsoft.Json;
 using System.Net.Http.Headers;
 using System.Text;
 using TestWebApi.Utilities;
+using System.Threading.Tasks;
 
 namespace TestWebApi.Controllers
 {
@@ -24,7 +25,15 @@ namespace TestWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage GetCustomers(string lastName)
         {
-            var url = Environment.GetEnvironmentVariable("CustomersViewUrl")+"&lastName="+lastName;
+            string url = "";
+            if (ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+            {
+                url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString() + "&lastName=" + lastName;
+            }
+            else
+            {
+               url = Environment.GetEnvironmentVariable("CustomersViewUrl") + "&lastName=" + lastName;
+            }
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try
@@ -47,7 +56,16 @@ namespace TestWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage GetCustomersById(string id)
         {
-            var url = Environment.GetEnvironmentVariable("CustomersViewByIdUrl");
+            string url = "";
+            if (ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+            {
+                url = ConfigurationManager.AppSettings["CustomersViewByIdUrl"].ToString();
+            }
+            else
+            {
+                url = Environment.GetEnvironmentVariable("CustomersViewByIdUrl");
+            }
+
             url = url.Replace("{id}", id).Replace("\"","");
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
@@ -71,7 +89,15 @@ namespace TestWebApi.Controllers
         [HttpGet]
         public HttpResponseMessage GetCustomers()
         {
-            var url = Environment.GetEnvironmentVariable("CustomersViewUrl");
+            string url = "";
+            if (ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+            {
+                url = ConfigurationManager.AppSettings["CustomersViewUrl"].ToString();
+            }
+            else
+            {
+                url = Environment.GetEnvironmentVariable("CustomersViewUrl");
+            }
             HttpClient httpClient = new HttpClient();
             HttpResponseMessage response;
             try
@@ -94,11 +120,25 @@ namespace TestWebApi.Controllers
         /// <returns>http response message</returns>
         [HttpPost]
         [CustomerDataValidation]
-        public HttpResponseMessage PostCustomer(Customer customer)
+        public async Task<HttpResponseMessage> PostCustomer(Customer customer)
         {
             HttpResponseMessage response;
             HttpClient httpClient = new HttpClient();
-            var url= Environment.GetEnvironmentVariable("CutomerAddUrl").ToString();
+            string url = "";
+            string authToken = "";
+            string eventbaseurl = "";
+            if (ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+            {
+                url = ConfigurationManager.AppSettings["CutomerAddUrl"].ToString();
+                authToken = ConfigurationManager.AppSettings["authToken"].ToString();
+                eventbaseurl = ConfigurationManager.AppSettings["EventApiUrl"].ToString();
+            }
+            else
+            {
+                url = Environment.GetEnvironmentVariable("CutomerAddUrl").ToString();
+                authToken = Environment.GetEnvironmentVariable("authToken");
+                eventbaseurl = Environment.GetEnvironmentVariable("EventApiUrl");
+            }
             try
             {
                 if (Request.Headers.Contains("transactionID"))
@@ -107,7 +147,7 @@ namespace TestWebApi.Controllers
                 }
                 if (Request.Headers.Contains("agentID"))
                 {
-                    customer.AgentID = Request.Headers.GetValues("agentID").FirstOrDefault();
+                    customer.AgentId = Request.Headers.GetValues("agentID").FirstOrDefault();
                 }
                 customer.id = GenerateCustomerId.Generate(9);
                 var content = JsonConvert.SerializeObject(customer);
@@ -116,12 +156,13 @@ namespace TestWebApi.Controllers
                 response = result.Result;
                 if (response.StatusCode == HttpStatusCode.OK)
                 {
-                    HttpClient eventHttpClient = new HttpClient();
-                    var eventurl= Environment.GetEnvironmentVariable("EventApiUrl")+"?customerId="+customer.id;
-                    eventHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Environment.GetEnvironmentVariable("authToken"));
-                    var eventresponse=eventHttpClient.GetAsync(eventurl);
-                    eventresponse.Wait();
-                    response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
+                    //HttpClient eventHttpClient = new HttpClient();
+                    //var eventurl= eventbaseurl+"?customerId=" +customer.id;
+                    //eventHttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authToken);
+                    //var eventresponse=eventHttpClient.GetAsync(eventurl);
+                    //eventresponse.Wait();
+                    //response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
+                    await ServiceBusHandler.Initialize(JsonConvert.SerializeObject(customer));
                 }
                 return response;
             }

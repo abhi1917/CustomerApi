@@ -20,6 +20,10 @@ namespace TestWebApi.Controllers
             {
                 var url = Environment.GetEnvironmentVariable("AzureKeyVaultUrl").ToString();
                 HttpResponseMessage httpResponse;
+                if(Request.Headers.Authorization.Parameter!=null && Request.Headers.Authorization.Parameter != null)
+                {
+                    return Request.CreateResponse(HttpStatusCode.OK, Request.Headers.Authorization.Parameter);
+                }
                 if (Request.Headers.Contains("ClientID") && Request.Headers.Contains("ClientSecret"))
                 {
                     var clientId = Request.Headers.GetValues("ClientID").FirstOrDefault();

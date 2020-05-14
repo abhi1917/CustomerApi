@@ -12,8 +12,11 @@ namespace TestWebApi.Utilities
 {
     public class CustomerEventRaiser
     {
-        private readonly string connectionString = Environment.GetEnvironmentVariable("EventHubConnectionString");
-        private readonly string eventHubName = Environment.GetEnvironmentVariable("EventHubName");
+        //private readonly string connectionString = Environment.GetEnvironmentVariable("EventHubConnectionString");
+        //private readonly string eventHubName = Environment.GetEnvironmentVariable("EventHubName");
+
+        private readonly string connectionString = ConfigurationManager.AppSettings["EventHubConnectionString"].ToString();
+        private readonly string eventHubName = ConfigurationManager.AppSettings["EventHubName"].ToString();
 
         /// <summary>
         /// Raises an event to create customer

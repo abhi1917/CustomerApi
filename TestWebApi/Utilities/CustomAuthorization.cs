@@ -19,7 +19,15 @@ namespace TestWebApi.Utilities
         {
             try
             {
-                var authToken = Environment.GetEnvironmentVariable("authToken");
+                var authToken = "";
+                if (ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+                {
+                    authToken = ConfigurationManager.AppSettings["authToken"].ToString();
+                }
+                else
+                {
+                    authToken = Environment.GetEnvironmentVariable("authToken");
+                }
                 if (actionContext.Request.Headers.Authorization != null) 
                 {
                     if(actionContext.Request.Headers.Authorization.Parameter== authToken)

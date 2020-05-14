@@ -10,6 +10,6 @@ namespace TestWebApi.Models
         public string Address { get; set; }
         public string Phonenumber { get; set; }
         public string TransactionID { get; set; }
-        public string AgentID { get; set; }
+        public string AgentId { get; set; }
     }
 }

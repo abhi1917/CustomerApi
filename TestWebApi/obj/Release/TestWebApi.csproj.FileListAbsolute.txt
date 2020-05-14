@@ -254,3 +254,16 @@ C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\M
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.Text.Encodings.Web.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.Text.Json.xml
 C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.ValueTuple.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.Azure.ServiceBus.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.Logging.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.Tokens.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.JsonWebTokens.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.Logging.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.Logging.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.Tokens.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\Microsoft.IdentityModel.Tokens.xml
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.IdentityModel.Tokens.Jwt.pdb
+C:\Users\abhi\Documents\Visual Studio 2017\Projects\CustomerApp\TestWebApi\bin\System.IdentityModel.Tokens.Jwt.xml
