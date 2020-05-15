@@ -319,6 +319,7 @@
     <Compile Include="Controllers\CustomerEventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\MockLeadController.cs" />
     <Compile Include="Controllers\TokenUrlController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

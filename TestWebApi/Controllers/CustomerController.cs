@@ -163,6 +163,7 @@ namespace TestWebApi.Controllers
                     //eventresponse.Wait();
                     //response = Request.CreateResponse(HttpStatusCode.OK, "Customer details entered succesfully");
                     await ServiceBusHandler.Initialize(JsonConvert.SerializeObject(customer));
+                    await CustomerEventRaiser.RaiseNewCustomerEvent(customer.id);
                 }
                 return response;
             }

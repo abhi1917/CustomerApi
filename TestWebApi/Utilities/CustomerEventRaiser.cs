@@ -10,21 +10,29 @@ using System.Configuration;
 
 namespace TestWebApi.Utilities
 {
-    public class CustomerEventRaiser
+    public static class CustomerEventRaiser
     {
-        //private readonly string connectionString = Environment.GetEnvironmentVariable("EventHubConnectionString");
-        //private readonly string eventHubName = Environment.GetEnvironmentVariable("EventHubName");
-
-        private readonly string connectionString = ConfigurationManager.AppSettings["EventHubConnectionString"].ToString();
-        private readonly string eventHubName = ConfigurationManager.AppSettings["EventHubName"].ToString();
-
+       
         /// <summary>
         /// Raises an event to create customer
         /// </summary>
         /// <param name="customerId">customerId to be inserted</param>
         /// <returns></returns>
-        public async Task RaiseNewCustomerEvent(string customerId)
+        public static async Task RaiseNewCustomerEvent(string customerId)
         {
+            string connectionString = ConfigurationManager.AppSettings["EventHubConnectionString"].ToString();
+            string eventHubName = ConfigurationManager.AppSettings["EventHubName"].ToString();
+
+            if(ConfigurationManager.AppSettings["IsTestingEnv"].ToString() == "true")
+                {
+                connectionString = ConfigurationManager.AppSettings["EventHubConnectionString"].ToString();
+                eventHubName = ConfigurationManager.AppSettings["EventHubName"].ToString();
+                }
+                else
+                {
+                connectionString = Environment.GetEnvironmentVariable("EventHubConnectionString");
+                eventHubName = Environment.GetEnvironmentVariable("EventHubName");
+                }
             EventHubProducerClient producerClient = new EventHubProducerClient(connectionString, eventHubName);
             EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
 
